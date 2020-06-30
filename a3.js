@@ -212,4 +212,5 @@ const __main = function() {
 module.exports = {
     equals,
     allIsArray,
+    allIsObj,
 }
