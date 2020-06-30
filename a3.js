@@ -51,6 +51,7 @@ const equals = function(a, b) {
     let r = true
     if (allIsArray(a, b)) {
 
+        
         if (a.length !== b.length) {
             r = false
         } else {
