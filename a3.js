@@ -207,4 +207,9 @@ const __main = function() {
     testEquals()
 }
 
-__main()
+// __main()
+
+module.exports = {
+    equals,
+    allIsArray,
+}

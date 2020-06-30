@@ -1,3 +1,8 @@
+const {
+    equals,
+    allIsArray,
+} = require('./a3')
+
 const log = console.log.bind(console)
 
 const ensure = function(condition, message) {
@@ -11,6 +16,7 @@ const ensure = function(condition, message) {
 const arrayClone = function(array) {
     // clone 一个数组并且返回
     // 注意, 要求实现浅拷贝
+    return array.concat()
 }
 
 const testArrayClone = function() {
@@ -40,6 +46,16 @@ const arrayDeepClone = function(array) {
     // 遍历 array 得到元素
     // 如果元素是数组, 递归调用 arrayDeepClone 函数并把元素作为参数, 将得到的返回值添加到 l 中
     // 如果元素不是空数组, 直接把元素添加到 l 中
+    const r = []
+    for (let index = 0; index < array.length; index++) {
+        const item = array[index];
+        if (allIsArray(item)) {
+            r.push(arrayDeepClone(item))
+        } else {
+            r.push(item)
+        }
+    }
+    return r
 }
 
 const testArrayDeepClone = function() {
