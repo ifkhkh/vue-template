@@ -1,5 +1,7 @@
 const log = console.log.bind(console)
-
+const {
+    equals,
+} = require('./a3')
 const ensure = function(condition, message) {
     if (!condition) {
         log('测试失败', message)
@@ -22,6 +24,20 @@ const flat = (array) => {
     // 遍历数组 array 得到元素
     // 如果元素是数组, 继续遍历这个元素, 并且把得到的结果添加到 l 中
     // 如果元素不是数组, 直接把元素添加到 l 中
+    let r = []
+    array.forEach(item => {
+        if (isArray(item)) {
+            // const l = flat(item)
+            // r.push(...l)
+            // r = r.concat(l)
+            item.forEach(it => {
+                r.push(it)
+            });
+        } else {
+            r.push(item)
+        }
+    });
+    return r
 }
 
 const testFlat = () => {
@@ -45,6 +61,16 @@ const flatDeep = (l) => {
     // 遍历数组 array 得到元素
     // 如果元素是数组, 递归调用 flatDeep 函数把元素作为参数, 并且把得到的返回值与 l 拼接在一起, 注意, 这一步需要用 concat 方法
     // 如果元素不是数组, 直接把元素添加到 l 中
+    let r = []
+    l.forEach(item => {
+        if (isArray(item)) {
+            const l = flatDeep(item)
+            r = r.concat(l)
+        } else {
+            r.push(item)
+        }
+    });
+    return r
 }
 
 const testFlatDeep = () => {
