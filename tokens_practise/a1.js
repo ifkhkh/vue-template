@@ -20,4 +20,12 @@ const numbers = function(code) {
     // 字符串结尾可能不是空格（比如这里的 asdf）
     // 最简单的做法是，先在末尾加个空格再解析
     // 你知道很多编译器必须要求最后一个字符是回车键吗？
+
+    while (i < s.length) {
+        const c = s[i]
+        console.log(c)
+        i = i + 1
+    }
 }
+
+console.log(numbers(code))
