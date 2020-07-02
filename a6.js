@@ -1,10 +1,16 @@
+const {
+    allIsArray,
+    allIsObj,
+    equals,
+} = require('./a3')
+
 const log = console.log.bind(console)
 
 const ensure = function(condition, message) {
     if (!condition) {
         log('测试失败', message)
     } else {
-        log('测试成功')
+        log('测试成功', message)
     }
 }
 
@@ -23,6 +29,22 @@ const deepClone = function(value) {
     // 递归调用 deepClone 函数并把元素作为参数, 将得到的返回值添加到 l 中
     // 遍历结束后返回 l
     // 如果 value 是其他类型, 直接返回 value
+    // if ()
+    let r = null
+    if (allIsArray(value)) {
+        r = []
+        value.forEach(item => {
+            r.push(deepClone(item))
+        });
+    } else if (allIsObj(value)) {
+        r = {}
+        Object.keys(value).forEach(k => {
+            r[k] = deepClone(value[k])
+        });
+    } else {
+        r = value
+    }
+    return r
 }
 
 const testDeepClone = function() {
