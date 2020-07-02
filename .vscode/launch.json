@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/a7.js"
+            "program": "${workspaceFolder}/recursion_practise/a7.js"
         }
     ]
 }
