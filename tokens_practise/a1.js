@@ -4,6 +4,16 @@ let code = "abc 12 234 asjf931 asdf"
 // log(numbers(code))
 // ["12", "234"]
 
+const isNumber = str => Boolean(Number(str))
+
+const findNextIndex = (str, i) => {
+    for (let index = i; index < str.length; index++) {
+        const c = str[index];
+        if (c === ' ') {
+            return index
+        }
+    }
+}
 
 const numbers = function(code) {
     let s = code
@@ -21,11 +31,20 @@ const numbers = function(code) {
     // 最简单的做法是，先在末尾加个空格再解析
     // 你知道很多编译器必须要求最后一个字符是回车键吗？
 
+    s = s + ' '
+    const r = []
+
     while (i < s.length) {
         const c = s[i]
-        console.log(c)
-        i = i + 1
+        if (c === ' ') {
+            i = i + 1            
+        } else {
+            const nextIndex = findNextIndex(s, i)
+            const word = s.slice(i, nextIndex)
+            isNumber(word) && r.push(word)
+            i = nextIndex + 1
+        }
     }
+    return r
 }
-
 console.log(numbers(code))
