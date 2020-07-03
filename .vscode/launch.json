@@ -11,7 +11,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/tokens_practise/a1.js"
+            // "outputCapture": "std",
+            "program": "${workspaceFolder}/tokens_practise/a2.js"
         }
     ]
 }
