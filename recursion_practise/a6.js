@@ -88,4 +88,8 @@ const __main = function() {
     testDeepClone()
 }
 
-__main()
+// __main()
+
+module.exports = {
+    deepClone,
+}

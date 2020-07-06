@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             // "outputCapture": "std",
-            "program": "${workspaceFolder}/tokens_practise/a2.js"
+            "program": "${workspaceFolder}/recursion_practise/a8.js"
         }
     ]
 }
