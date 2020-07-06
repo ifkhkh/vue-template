@@ -43,7 +43,7 @@ const tokens1 = function(code) {
             i = nextIndex + 1
         } else {
             // 找到下一个空格
-            const nextIndex = findNextIndex(s, i, ' ')
+            const nextIndex = findNextIndex(s, i, ' ')  
             // 截取字符串
             const word = s.slice(i, nextIndex)
             // 留下数字的
