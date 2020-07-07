@@ -61,4 +61,8 @@ const __main = () => {
 }
 
 
-__main()
+// __main()
+
+module.exports = {
+    tokens1,
+}

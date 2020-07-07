@@ -11,10 +11,12 @@ const ensure = (condition, name) => {
 const log = console.log.bind(console)
 
 const processChildren = (parent, list) => {
+    // 遍历 list 处理父节点和所属的子节点
     list.forEach(item => {
         if (item.parent === parent.node_id) {
-            parent.children.push(item)
+            // 递归处理以该节点为父节点的子节点
             processChildren(item, list)
+            parent.children.push(item)
         }
     });
 }
@@ -33,7 +35,9 @@ const tree = (nodeList) => {
         }
     })
 
+    // 拿到头结点
     const header = l.filter(who => who.parent === 0)[0]
+    // 递归处理父节点和子节点
     processChildren(header, l)
     return header
 }

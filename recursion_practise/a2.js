@@ -188,6 +188,6 @@ const __main = function () {
 
 __main()
 
-export {
+module.exports = {
     objectDeepEquals,
 }
