@@ -8,8 +8,11 @@ const isNumber = str => Boolean(Number(str))
 
 const findNextIndex = (str, i, symbolChar) => {
     for (let index = i; index < str.length; index++) {
-        const c = str[index];
-        if (c === symbolChar) {
+        const c = str[index]
+        if (c === '|') {
+            index++
+            continue
+        } else if (c === symbolChar) {
             return index
         }
     }

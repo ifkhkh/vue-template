@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             // "outputCapture": "std",
-            "program": "${workspaceFolder}/tokens_practise/a3.js"
+            "program": "${workspaceFolder}/tokens_practise/a4.js"
         }
     ]
 }

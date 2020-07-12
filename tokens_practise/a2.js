@@ -24,10 +24,10 @@ const tokens1 = function(code) {
     s = s + ' '
     // 补充末尾空格便于遍历
     const r = []
-    const specialSymbol = `()[]`
+    const specialSymbol = `{}()[]+`
     while (i < s.length) {
         const c = s[i]
-        if (c === ' ') {
+        if (c === ' ' || c === '') {
             // 空格跳过
             i = i + 1            
         } else if (specialSymbol.indexOf(c) !== -1) {
@@ -37,15 +37,23 @@ const tokens1 = function(code) {
         } else if (c === "'") {
             log(c, 'c')
             const nextIndex = findNextIndex(s, i + 1, "'")
-            const word = s.slice(i + 1, nextIndex)
+            let word = s.slice(i + 1, nextIndex)
+            // 转换数字的
+            if (isNumber(word)) {
+                word = Number(word)
+            }
             r.push(word)
-            log(nextIndex, word)
+            // log(nextIndex, word)
             i = nextIndex + 1
         } else {
             // 找到下一个空格
             const nextIndex = findNextIndex(s, i, ' ')  
             // 截取字符串
-            const word = s.slice(i, nextIndex)
+            let word = s.slice(i, nextIndex)
+            // 转换数字的
+            if (isNumber(word)) {
+                word = Number(word)
+            }
             // 留下数字的
             // isNumber(word) && r.push(word)
             r.push(word)
